@@ -1,4 +1,4 @@
-//this is a sample comment
+//this is a comment
 package com.ofss.controller;
 import java.util.List;
 import java.util.Map;
