@@ -20,13 +20,13 @@ public class AccountController {
     }
 
     // Get an account by account number (includes customer and bank)
-    @GetMapping("/{accountNumber}")
+    @GetMapping("/id/{accountNumber}")
     public ResponseEntity<Object> getAccountById(@PathVariable int accountNumber) {
         return accountService.getAccountById(accountNumber);
     }
 
     // Add a new account
-    @PostMapping("/add")
+    @PostMapping
     public ResponseEntity<Object> addAccount(@RequestBody Account account) {
         return accountService.addAccount(account);
     }
@@ -38,13 +38,13 @@ public class AccountController {
     }
 
     // Update account completely
-    @PutMapping("/{accountNumber}")
+    @PutMapping("/id/{accountNumber}")
     public ResponseEntity<Object> updateAccount(@PathVariable int accountNumber, @RequestBody Account account) {
         return accountService.updateAccountById(accountNumber, account);
     }
 
     // Partially update account
-    @PatchMapping("/{accountNumber}")
+    @PatchMapping("/id/{accountNumber}")
     public ResponseEntity<Object> updateAccountPartially(@PathVariable int accountNumber, @RequestBody Account account) {
         return accountService.updateAccountPartially(accountNumber, account);
     }

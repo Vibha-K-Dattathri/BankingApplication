@@ -20,7 +20,7 @@ public class TransactionController {
 //        return ResponseEntity.ok(transactions);
 //    }
     // Deposit API
-    @PostMapping("/deposit/{accountId}")
+    @PostMapping("/transactions/deposit/{accountId}")
     public ResponseEntity<String> deposit(@PathVariable int accountId, @RequestBody Map<String, Object> payload) {
         Integer toDestinationAccount = (Integer) payload.get("toDestinationAccount");
         Double depositAmount = Double.valueOf(payload.get("depositAmount").toString());
@@ -35,7 +35,7 @@ public class TransactionController {
         }
     }
     // Withdraw API
-    @PostMapping("/withdraw/{accountId}")
+    @PostMapping("/transactions/withdraw/{accountId}")
     public ResponseEntity<String> withdraw(@PathVariable int accountId, @RequestBody Map<String, Object> payload) {
         Double withdrawAmount = Double.valueOf(payload.get("withdrawAmount").toString());
         if (withdrawAmount == null || withdrawAmount <= 0) {
@@ -49,7 +49,7 @@ public class TransactionController {
         }
     }
     // Transfer API
-    @PostMapping("/transfer/{fromSourceAccount}/{toTargetAccount}")
+    @PostMapping("/transactions/transfer/{fromSourceAccount}/{toTargetAccount}")
     public ResponseEntity<String> transfer(@RequestBody Map<String, Object> payload) {
         Integer fromSourceAccount = (Integer) payload.get("fromSourceAccount");
         Integer toTargetAccount = (Integer) payload.get("toTargetAccount");
