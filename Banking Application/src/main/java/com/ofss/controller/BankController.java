@@ -18,7 +18,7 @@ public class BankController {
     @Autowired
     private BankService bankService;
     // API to add a bank
-    // POST http://localhost:8184/banks
+    // POST http://localhost:8183/banks
     @PostMapping("/banks")
     public ResponseEntity<Object> addABank(@RequestBody Bank bank) {
         return bankService.addABank(bank);
